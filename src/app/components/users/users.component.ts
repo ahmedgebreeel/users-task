@@ -12,34 +12,34 @@ import { HttpClientModule } from '@angular/common/http';
 })
 export class UsersComponent implements OnInit {
 
-   users: any;
+   usersOfPage_1: any;
+   usersOfPage_2: any;
 
 constructor(private usersService: UsersService) {
 }
   ngOnInit(){
-    this.usersService.getUsers(1).subscribe({
-      next: (data) => {
-        console.log(data.body.data);
-        this.users = data.body.data
-        console.log(this.users[1]);
-      },
-      error: (err) => {
-        console.log(err);
-      }
-    })
+    this.getUsers(1);
   }
 
   getUsers(arg0: number) {
-    this.usersService.getUsers(arg0).subscribe({
-      next: (data) => {
-        console.log(data.body.data);
-        this.users = data.body.data
-        
-      },
-      error: (err) => {
-        console.log(err);
-      }
-    })
+    // checking if the array is empty or not and then get the users
+    if(!this.usersOfPage_2){
+
+      this.usersService.getUsers(arg0).subscribe({
+        next: (data) => {
+          console.log(data.body.data);
+          if(arg0 === 1){
+            this.usersOfPage_1 = data.body.data;
+          }else{
+            this.usersOfPage_2 = data.body.data;
+          }
+          
+        },
+        error: (err) => {
+          console.log(err);
+        }
+      })
+    }
     }
 
 

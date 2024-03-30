@@ -3,8 +3,25 @@
   <div class="carousel w-3/4 ">
     <div id="page1" class="carousel-item w-full">
   
-      @if(users){
-        @for (user of users; track user.id) {
+          @if(usersOfPage_1){
+            @for (user of usersOfPage_1; track user.id) {
+      
+              <div class="card w-96 bg-base-100 shadow-xl">
+                <figure class="px-10 pt-10">
+                  <img [src]="user.avatar" alt="Shoes" class="rounded-xl" />
+                </figure>
+                <div class="card-body items-center text-center">
+                  <div class="card-actions">
+                    <button class="btn btn-primary">{{user.first_name + " " + user.last_name}}</button>
+                  </div>
+                </div>
+              </div>
+            }
+          }
+    </div>
+    <div id="page2" class="carousel-item w-full">
+      @if(usersOfPage_2){
+        @for (user of usersOfPage_2; track user.id) {
   
           <div class="card w-96 bg-base-100 shadow-xl">
             <figure class="px-10 pt-10">
@@ -19,7 +36,7 @@
         }
       }
     </div>
-    <div id="page2" class="carousel-item w-full"></div>
+      
   </div>
   <div class="flex justify-center w-full py-2 gap-2">
     <a (click)="getUsers(1)" href="#page1" class="btn btn-xs">1</a>
