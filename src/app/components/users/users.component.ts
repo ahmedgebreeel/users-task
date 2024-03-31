@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersService } from '../../services/users.service';
 import { HttpClientModule } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-users',
@@ -15,7 +16,7 @@ export class UsersComponent implements OnInit {
    usersOfPage_1: any;
    usersOfPage_2: any;
 
-constructor(private usersService: UsersService) {
+constructor(private usersService: UsersService, private router: Router) {
 }
   ngOnInit(){
     this.getUsers(1);
@@ -43,4 +44,10 @@ constructor(private usersService: UsersService) {
     }
 
 
+    clickedUser(id:any){
+      console.log(id);
+      sessionStorage.setItem('id', id);
+      this.router.navigateByUrl(`users/${id}`);
+      
+    }
 }
