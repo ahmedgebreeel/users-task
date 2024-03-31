@@ -15,7 +15,7 @@ export class UsersService {
     return this.http.get(this.URL + "?page=" + page, {observe:"response"});
   }
   
-  getUserDetails(id: number){
-
+  getUserDetails(id: any):Observable<HttpResponse<any>> {
+    return this.http.get(this.URL + "/" + id, {observe:"response"});
   }
 }

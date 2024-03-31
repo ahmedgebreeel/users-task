@@ -2,16 +2,21 @@
 
 
 
-  <div class="flex justify-center ml-48">
+  <div class="flex justify-center ml-96">
     <div class="card lg:card-side bg-base-100 shadow-xl">
-        <figure><img src="https://daisyui.com/images/stock/photo-1494232410401-ad00d5433cfa.jpg" alt="Album"/></figure>
+        <figure><img [src]="oneUser?.avatar" alt="Album"/></figure>
         <div class="card-body">
-          <h2 class="card-title">New album is released!</h2>
-          <p>Click the button to listen on Spotiwhy app.</p>
-          <div class="card-actions justify-end">
+          <h2 class="card-title m-auto"> User Details</h2>
+          <p>Id : {{oneUser?.id}}</p>
+          <p>first name : {{oneUser?.first_name}}</p>
+          <p>last name : {{oneUser?.last_name}}</p>
+          <p>email : {{oneUser?.email}}</p>
+          <div class="card-actions justify-end mt-6">
             <button routerLink='/users'  class="btn btn-primary">back</button>
           </div>
         </div>
       </div>
-
+  
   </div>
+
+
