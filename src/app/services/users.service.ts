@@ -7,12 +7,15 @@ import { Observable } from 'rxjs';
 })
 export class UsersService {
 
-  private URL = "https://reqres.in/api/users?page=";
+  private URL = "https://reqres.in/api/users";
 
   constructor(private http: HttpClient) { }
 
   getUsers(page: number): Observable<HttpResponse<any>> {
-    return this.http.get(this.URL + page, {observe:"response"});
+    return this.http.get(this.URL + "?page=" + page, {observe:"response"});
   }
   
+  getUserDetails(id: number){
+
+  }
 }

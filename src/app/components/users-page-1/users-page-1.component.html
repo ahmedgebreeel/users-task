@@ -1,0 +1,29 @@
+
+
+   
+    <div id="page1" class="carousel-item w-3/5">
+  
+      @if(usersOfPage_1){
+        @for (user of usersOfPage_1; track user.id) {
+  
+          <div class="card w-96 bg-base-100 shadow-xl">
+            <figure class="px-10 pt-10">
+              <img [src]="user.avatar" alt="Shoes" class="rounded-xl" />
+            </figure>
+            <div class="card-body items-center text-center">
+              <div class="card-actions">
+                <button (click)="clickedUser(user.id)" class="btn btn-primary">{{user.first_name + " " + user.last_name}}</button>
+              </div>
+            </div>
+          </div>
+        }
+      }
+  </div>
+      
+
+
+
+
+
+
+

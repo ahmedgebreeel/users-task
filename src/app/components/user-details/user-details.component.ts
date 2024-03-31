@@ -9,5 +9,5 @@ import { RouterModule } from '@angular/router';
   styleUrl: './user-details.component.css'
 })
 export class UserDetailsComponent {
-
+    
 }
