@@ -1,7 +1,6 @@
 
 
-
-
+@if(oneUser){
   <div class="flex justify-center ml-96">
     <div class="card lg:card-side bg-base-100 shadow-xl">
         <figure><img [src]="oneUser?.avatar" alt="Album"/></figure>
@@ -18,5 +17,13 @@
       </div>
   
   </div>
+}@else {
+        <div style= "margin-left: 42rem;">
+
+          <span class="loading loading-spinner loading-lg"></span>
+        </div>
+      }
+
+ 
 
 
